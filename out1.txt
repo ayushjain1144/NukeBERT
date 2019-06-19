@@ -1,0 +1,177 @@
+legal notice
+this report was prepared as an account of
+government sponsored work neither the
+united states, nor the commission, nor any
+person acting on behalf of the commission
+a makes any warranty or representation, expressed or implied, with respect to
+the accuracy, compieteness, or usefulness
+of the information contained in this report,
+or that the use of any information, apparatus, method, or process disclosed in this
+report may not infringe privately owned
+rights; or
+b, assumes any liabilities with respect
+to the use of, or for damages resulting from
+the use of any information, apparatus,
+method, or process disclosed in this report
+as used in the above, "person acting on
+behalf of the commission" includes any employee or contractor of the commission, or
+employee of such contractor, to the extent
+that such employee or contractor of the
+commission, or employee of such contractor
+prepares, disseminates, or provides access
+to, any information pursuant to his employment or contract with the commission, or
+‘his employment with such contractorcary nod a zacnp
+large fast reactor design study
+monthly report
+july 
+prepared for
+chicago operations office
+united states atomic energy commission
+contract at()
+by
+allischalmers manufacturing company
+nuclear power department
+ kennedy st, nw
+washington, dccontents
+ administrative
+ technical
+ design criteria
+ core concepts
+ fuel assembly design
+
+
+
+
+ physics
+materials
+mechanical analysis
+thermal & hydraulic analysis
+mechanical design administrative
+the contract with the usaec for the large fast reactor design study was signed
+june  with an effective date of june  and a termination date of december ,
+ work was started midjune and has continued in accordance with the preliminary work plan submitted to the chicago operations office letters of intent
+to enter in a subcontract have been sent to atomic power development associates
+and babcock and wilcox, and allischalmers is presently preparing the subcontracts
+the physics and safety analysis tasks have been assigned to apda and one physicist
+from allischalmers and two physicists from babcock and wilcox have been assigned
+to work at apda and are now in detroit working on the project
+several meetings have been held to orient work on the project
+a _ a meeting was attended at chicago operations office on july
+ to discuss ground rules for the study that would limit the scope
+of the studies to the areas of particular interest to the aec and
+make the basis of the four individual studies consistent so that
+comparison of the results may be more readily made
+b _ a meeting of the advisory committee and project manager was
+held at ac in washington on july  to establish basic criteria
+for the study and discuss reactor configurations that meet the
+criteria work for the following month was scoped
+c _ a meeting was held at apda in detroit on july  with
+physics personnel to discuss the basic areas of interest for
+the study and to review the calculational techniques that
+will be used
+d _ a meeting was held at ac in washington on july  to discuss the
+results of preliminary physics calculations and fuel element design
+considerations earlier objectives were reevaluated and work
+was oriented accordingly
+the project organization for the study will be as shown on the attached chart
+work under the various lead engineers will be performed by members of their organiza
+tion or by loaned employees of the associated companies monthly cost reports
+will be made separately
+ technical
+ design criteria
+the following design criteria have been established for the studya _ complete reliance on the doppler coefficient for reactor safety
+is to be avoided major emphasis will be placed on attempting
+to obtain a sodium coefficient which is negative or not significantly different from 
+b no large positive reactivity coefficient from fuel movement will
+be permitted this will be accomplished by segmenting or other
+mechanical fuel design provisions
+c the fuel will be designed for high burnup ,  ,
+mwd/mt
+d the use of a gas reservoir out of the core will be avoided if
+possible
+e _ a fuel management program using an annual refueling shutdown
+is a design target 
+f the refueling mechanism will be brought into the reactor vessel
+for refueling only mechanisms inside the reactor vessel will be
+avoided where possible
+ core concepts
+a number of techniques for achieving a negative sodium coefficient have been
+identified and those which will be investigated first are  high leakage cores,
+ moving fuel to a less reactive configuration by thermally initiated means in
+studying the high leakage core approach two problems which require special attention
+are  providing sufficient control to permit high burnup with the reduced internal
+conversion ratios obtained in high leakage cores  proper blanket design to achieve
+the required overall breeding gain
+when preliminary designs of the fuel assemblies have been completed, means of
+achieving fuel movement through a thermomechanical design approach will be
+studied
+in addition to minimizing fuel slumping effects by segmenting the axial fuel elements,
+a crossflow subassembly design is being considered this approach is especially
+attractive from the point of view of remote fuel refabrication
+ fuel assembly design
+ materials
+consistent with the core concepts discussed above, concepts and related calculations
+for fuel assemblies have been started the designated plutoniumuranium mixed oxidefuel with stainless steel cladding is being used the reference cladding material
+chosen is  ss with an alternate material,  dl, being considered because of
+its superior high temperature creep properties
+ mechanical analzsis
+in order to establish metallurgical and mechanical limitations of fuel pins a series
+of calculations have been initiated
+equations to obtain the burnup rate, cladding final stress corresponding to % creep
+and metallurgical lifetime of fuel element were derived as a function of the following
+parameters pin diameter, relative cladding thickness, fuel void, fraction of gas
+released and heat generation rate
+fuel lifetimes were calculated for  stainless steel at  and  f cladding
+temperatures and various values of the parameters listed above results were set in
+tabulated form and similar calculations will be made in the near future using  dl
+steel in addition to the  ss
+work is continuing and results will be shown graphically to allow a more ready
+identification of trends caused by change in individual parameters
+ thermal analysis
+consideration was given to tubular fuel elements versus pins having an equivalent
+core central temperature fde =  btu/hrft for initial thermal analysis the
+tubular elements were eliminated due to structural weakness for containment of the
+fission gas
+preliminary hydraulic analysis has been performed on various core fuel assemblies
+with fuel pin diameters ranging from  in to  in in all cases, constant
+reference values were used for linear heat generation q/l max, sodium temperature
+difference across the core  f, core height  ft, and pitch of the spacer systems
+both square and hexagonal can assemblies have been considered, with square and
+triangular double grid spacers and spiral wire spacers the volume fractions of sodium,
+fuel, void, and steel structure have been varied to determine compositions which are
+suitable from the hydraulic standpoint an initial reference composition has been
+selected for physics analysis
+ mechanical design
+preliminary drawings of the segmented fuel square array fuel assembly and the
+crossflow fuel assembly are practically complete a preliminary layout of the square
+array core is also being prepared for use in control and fuel handling mechanism
+concept studies physics
+preliminary analysis to determine the sodium void coefficient for large cores has been
+started extrapolating the results of previous fast reactor studies, a core size and
+composition were selected a  liter cylindrical core with an l/d =  and with
+an outer blanket is the reference for comparison with cores where the blanket material
+and core are arranged to provide for increased leakage thin inner annular blankets
+do not appear to significantly effect the sodium coefficient but thicker blankets do
+these calculations are being refined problems are being set up for annular cores
+of various thickness and cores with a central axial blanket region
+mb
+//large fast reactor design study
+project organization
+nuclear power department
+washington
+hc nicke!, mgr
+analysis & development
+ws farmer, mgr
+large fast reactor
+design study
+ce klotz, proj mgr
+
+advisory committee
+a amorosi  apda
+jk davidson  ac
+mc edlund  b&w
+w jens  apda
+p ]
+ac " _ apda b&w
+lead engineer lead engineer lead engineer
+r miller j nims h barringer
