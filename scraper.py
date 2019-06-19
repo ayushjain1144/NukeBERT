@@ -5,15 +5,22 @@ import tempfile
 from pdf2image import convert_from_path
 import os
 import PyPDF2
+from string import digits
+import spacy
+import re
 
+nlp = spacy.load("C:/Users/2017A7PS0093P/Desktop/DATASET/en_vectors_web_lg-2.1.0/en_vectors_web_lg/en_vectors_web_lg-2.1.0")
+nlp.add_pipe(nlp.create_pipe('sentencizer'))
 
+#out_file = "out.txt"
+#out_file_handle = open(out_file, "a")
 
+out_count = 1
 
-out_file = "out.txt"
-out_file_handle = open(out_file, "a")
-
-directory = "Muthu FBR(1)/"
+directory = "test_data/"
 for file in os.listdir(directory):
+	out_file = 'out' + str(out_count)
+	out_file_handle = open(out_file, 'w')
 	print("************************start*********************************")
 	page_count = PyPDF2.PdfFileReader(open(os.path.join(directory, file), 'rb')).getNumPages()
 	print(f"Dealing with {page_count} pages!!")
@@ -36,7 +43,36 @@ for file in os.listdir(directory):
 
 				text = text.replace('-\n', '')
 
+				#lower case	
+				text = text.lower()
+
+				#remove spaces and extra lines and digits
+				remove_digits = str.maketrans('', '', digits)
+				
+				text = "\n".join([(l.strip()).translate(remove_digits) for l in text.splitlines() if l.strip()])
+				
+				pattern = re.findall(r'[.:\-)(|\\]+', text )
+
+				for match in pattern:
+	
+					text = text.replace(match, "")
+				text.replace('\n', ' ')	
+
 				out_file_handle.write(text)
+
+		out_file_handle.close()
+
+		
+
+
+				#doc = nlp(text)
+				#sentences = doc.sents
+				#text = "\n".join(token.string.strip() for token in doc.sents)
+
+			
+				
+
+				
 
 
 
@@ -49,4 +85,5 @@ for file in os.listdir(directory):
 	print("*************************end******************************")
 
 
-out_file_handle.close()
+
+	
