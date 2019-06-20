@@ -12,66 +12,80 @@ from gensim.summarization.textcleaner import replace_abbreviations, split_senten
 
 out_count = 1
 error_count = 0
+dir_counter = 3
 
-directory = "1/"
-for file in os.listdir(directory):
-	out_file = 'out.txt'
+directory = "data/"
+for subdir, dirs, files in os.walk(directory):
+	out_file = 'out' + str(dir_counter) + '_pendrive.txt'
 	out_file_handle = open(out_file, 'a')
-	print("************************start*********************************")
-	try:
-		page_count = PyPDF2.PdfFileReader(open(os.path.join(directory, file), 'rb')).getNumPages()
-	except:
-		error_count += 1
-		print(error_count)
-		continue
-	print(f"Dealing with {page_count} pages!!")
-	image_count = 1
-	max_limit = 100
+	
+	
+	print('directory: ' + str(dir_counter))
 
-	#generally last two pages have crap
-	while(image_count <= page_count):
-		with tempfile.TemporaryDirectory() as path:
-			images = convert_from_path(os.path.join(directory, file), output_folder=path, fmt='jpeg', first_page=image_count, last_page=image_count + 99)
-			print('partial success\n')
-			
-			for image in images:
+	file_counter = 1
+	for file in files:
+		print("************************start*********************************")
+		print('file: ' + str(file_counter))
+		try:
+			page_count = PyPDF2.PdfFileReader(open(os.path.join(subdir, file), 'rb')).getNumPages()
+		except Exception as e:
+			print(str(e))
+			error_count += 1
+			print(error_count)
+			continue
+		print(f"Dealing with {page_count} pages!!")
+		image_count = 1
+		max_limit = 100
 
-				image_count = image_count + 1
-				if image_count > page_count - 2:
-					text = ''
-
-				text = str(((pytesseract.image_to_string(image))))
-
-				text = text.replace('-\n', '')
-
-				#last pages tend to have references, which pollute data
+		#generally last two pages have crap
+		while(image_count <= page_count):
+			with tempfile.TemporaryDirectory() as path:
+				images = convert_from_path(os.path.join(subdir, file), output_folder=path, fmt='jpeg', first_page=image_count, last_page=image_count + 99)
+				print('partial success\n')
 				
+				for image in images:
+
+					image_count = image_count + 1
+					if image_count > page_count - 2:
+						text = ''
+
+					text = str(((pytesseract.image_to_string(image))))
+
+					text = text.replace('-\n', '')
+
+					#last pages tend to have references, which pollute data
+					
 
 
-				text = text.replace('\n', ' ')
+					text = text.replace('\n', ' ')
 
-				#remove spaces and extra lines and digits
-				remove_digits = str.maketrans('', '', digits)
+					#remove spaces and extra lines and digits
+					remove_digits = str.maketrans('', '', digits)
 
-				text = "\n".join([(l.strip()).translate(remove_digits) for l in text.splitlines() if l.strip()])
-				
-				text = re.sub(r'[.:"\-)(|\\]{2,}', '', text )
+					text = "\n".join([(l.strip()).translate(remove_digits) for l in text.splitlines() if l.strip()])
+					
+					text = re.sub(r'[.:"\-)(|\\]{2,}', '', text )
 
-				text = remove_citations(text)
+					text = remove_citations(text)
 
-				text = replace_abbreviations(text)
-				text = split_sentences(text)
+					text = replace_abbreviations(text)
+					text = split_sentences(text)
 
-				text = '\n'.join([undo_replacement(line) for line in text if len(line.split()) > 5])
+					text = '\n'.join([undo_replacement(line) for line in text if len(line.split()) > 5])
 
-				text = text.lower()
+					text = text.lower()
 
-				out_file_handle.write(text)
+					out_file_handle.write(text)
 
 		out_file_handle.write('\n\n')
-		out_file_handle.close()
+		file_counter += 1
+		print("*************************end******************************")
+
+	out_file_handle.close()
+	dir_counter += 1
 				
-	print("*************************end******************************")
+		
+	print('***************end directory************************')	
 
 
 
