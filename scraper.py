@@ -74,8 +74,10 @@ for subdir, dirs, files in os.walk(directory):
 					text = '\n'.join([undo_replacement(line) for line in text if len(line.split()) > 5])
 
 					text = text.lower()
-
-					out_file_handle.write(text)
+					try:
+						out_file_handle.write(text)
+					catch Exception as e:
+						print(str(e))
 
 		out_file_handle.write('\n\n')
 		file_counter += 1
