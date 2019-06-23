@@ -9,17 +9,18 @@ from string import digits
 import re
 from clean import remove_citations
 from gensim.summarization.textcleaner import replace_abbreviations, split_sentences, undo_replacement
+from gensim.parsing.preprocessing import strip_multiple_whitespaces, strip_short, strip_non_alphanum
 
 out_count = 1
 error_count = 0
-dir_counter = 3
+dir_counter = 0
 
 directory = "data/"
 for subdir, dirs, files in os.walk(directory):
-	out_file = 'out' + str(dir_counter) + '_pendrive.txt'
+	out_file = 'test.txt'
 	out_file_handle = open(out_file, 'a')
-	
-	
+
+
 	print('directory: ' + str(dir_counter))
 
 	file_counter = 1
@@ -42,19 +43,19 @@ for subdir, dirs, files in os.walk(directory):
 			with tempfile.TemporaryDirectory() as path:
 				images = convert_from_path(os.path.join(subdir, file), output_folder=path, fmt='jpeg', first_page=image_count, last_page=image_count + 99)
 				print('partial success\n')
-				
+
 				for image in images:
 
 					image_count = image_count + 1
 					if image_count > page_count - 2:
-						text = ''
+						continue
 
 					text = str(((pytesseract.image_to_string(image))))
 
 					text = text.replace('-\n', '')
 
 					#last pages tend to have references, which pollute data
-					
+
 
 
 					text = text.replace('\n', ' ')
@@ -63,7 +64,7 @@ for subdir, dirs, files in os.walk(directory):
 					remove_digits = str.maketrans('', '', digits)
 
 					text = "\n".join([(l.strip()).translate(remove_digits) for l in text.splitlines() if l.strip()])
-					
+
 					text = re.sub(r'[.:"\-)(|\\]{2,}', '', text )
 
 					text = remove_citations(text)
@@ -71,12 +72,18 @@ for subdir, dirs, files in os.walk(directory):
 					text = replace_abbreviations(text)
 					text = split_sentences(text)
 
+					for line in text:
+						strip_non_alphanum(line)
+						strip_multiple_whitespaces(line)
+						strip_short(line)
+
+
 					text = '\n'.join([undo_replacement(line) for line in text if len(line.split()) > 5])
 
 					text = text.lower()
 					try:
 						out_file_handle.write(text)
-					catch Exception as e:
+					except Exception as e:
 						print(str(e))
 
 		out_file_handle.write('\n\n')
@@ -85,10 +92,6 @@ for subdir, dirs, files in os.walk(directory):
 
 	out_file_handle.close()
 	dir_counter += 1
-				
-		
-	print('***************end directory************************')	
 
 
-
-	
+	print('***************end directory************************')
