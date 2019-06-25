@@ -7,7 +7,7 @@ import os
 import PyPDF2
 from string import digits
 import re
-from clean import remove_citations
+from clean import remove_citations, clean_line
 from gensim.summarization.textcleaner import replace_abbreviations, split_sentences, undo_replacement
 from gensim.parsing.preprocessing import strip_multiple_whitespaces, strip_short, strip_non_alphanum
 
@@ -15,10 +15,10 @@ out_count = 1
 error_count = 0
 dir_counter = 0
 
-directory = "data/"
+directory = "test_data/"
 for subdir, dirs, files in os.walk(directory):
-	out_file = 'test.txt'
-	out_file_handle = open(out_file, 'a')
+	out_file = 'test' + str(dir_counter) + '.txt'
+	#out_file_handle = open(out_file, 'a', encoding='utf8')
 
 
 	print('directory: ' + str(dir_counter))
@@ -65,32 +65,51 @@ for subdir, dirs, files in os.walk(directory):
 
 					text = "\n".join([(l.strip()).translate(remove_digits) for l in text.splitlines() if l.strip()])
 
-					text = re.sub(r'[.:"\-)(|\\]{2,}', '', text )
+					text = re.sub(r'[.:"\-)\[\](|\\]{2,}', '', text )
+					text = re.sub(r'[+\-*/~%]', '', text)
 
 					text = remove_citations(text)
 
 					text = replace_abbreviations(text)
 					text = split_sentences(text)
+					
 
-					for line in text:
-						strip_non_alphanum(line)
-						strip_multiple_whitespaces(line)
-						strip_short(line)
+					
 
 
-					text = '\n'.join([undo_replacement(line) for line in text if len(line.split()) > 5])
+
+					text = '\n'.join([clean_line(line) for line in text if len(line.split()) > 5])
 
 					text = text.lower()
+					text = text + '\n'
+					
 					try:
-						out_file_handle.write(text)
+						with open(out_file, 'a') as out_file_handle:
+							out_file_handle.write(text)
+							#print(image_count)
+					except UnicodeEncodeError:
+						print(image_count)
+						image_count = page_count + 1
+						continue
 					except Exception as e:
 						print(str(e))
+						print(image_count)
+						print('no idea')
+						image_count = page_count + 1
+						continue
 
-		out_file_handle.write('\n\n')
+					
+
+						
+
+		#out_file_handle.write('\n\n')
+					
+					
+		
 		file_counter += 1
 		print("*************************end******************************")
 
-	out_file_handle.close()
+	
 	dir_counter += 1
 
 
