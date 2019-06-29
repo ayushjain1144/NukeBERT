@@ -1,0 +1,4 @@
+Number of lines = 491801 == 5 lack
+Number of words = 7931069 == 80 lac == 8 million
+Number of chars = 57183652 == 6 crore == 60 million
+Length of longest line = 2514 characters
