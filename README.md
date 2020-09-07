@@ -1,5 +1,15 @@
-# semantic-segmentation-IGCAR
+# NukeBERT
 
-This is a temporary repository. I will be cleaning and publishing a new repository on this link https://github.com/ayushjain1144/NukeBert
 
-You can find the research paper here: https://arxiv.org/abs/2003.13821
+If you find our work useful, please consider citing us at 
+
+```
+@misc{jain2020nukebert,
+    title={NukeBERT: A Pre-trained language model for Low Resource Nuclear Domain},
+    author={Ayush Jain and Dr. N. M. Meenachi and Dr. B. Venkatraman},
+    year={2020},
+    eprint={2003.13821},
+    archivePrefix={arXiv},
+    primaryClass={cs.LG}
+}
+```
