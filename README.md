@@ -8,7 +8,12 @@ Significant advances have been made in recent years on Natural Language Processi
 
 ## Documentation
 
-The documentation would be updated soon!!
+The most important files are in models folder
+
+- `bert_pretrained.ipynb`: This contains the code for pretraining NukeBERT
+- `bert_qa.ipynb`: This file is used for question answering on NQuAD
+
+*Note*: These files require that you already have access to the dataset. You can upload those dataset to your google drive and replace the corresponding data paths in the notebooks
 
 ## Dataset
 
