@@ -17,7 +17,7 @@ The most important files are in models folder
 
 ## Dataset
 
-If you want access to the datasets, please fill this [form](https://forms.gle/1pkiP9qPjqG9GsMC6). If your request is approved, you will be able to access this [link](https://drive.google.com/drive/folders/1-O8Q2IQ9oB7cWkxqkQQR_9xPNo4lXGoQ?usp=sharing) for the datasets. If I do not receive reply within a week, please feel free to drop an [email](mailto:ayushjain1144@gmail.com).
+If you want access to the datasets, please fill this [form](https://forms.gle/1pkiP9qPjqG9GsMC6). If your request is approved, you will be able to access this [link](https://drive.google.com/drive/folders/1-O8Q2IQ9oB7cWkxqkQQR_9xPNo4lXGoQ?usp=sharing) for the datasets. If I do not reply within a week, please feel free to drop an [email](mailto:ayushjain1144@gmail.com).
 
 ## Citation
 
